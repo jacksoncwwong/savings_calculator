@@ -42,7 +42,7 @@ $(document).ready(function(){
 function calculate(formData) {
 	var today = new Date();
 	var currentMonth = today.getMonth();
-	var currentYear = today.getYear() + 1900;
+	var currentYear = today.getYear() + 1900; //the way they calculate year is weird, for dates greater then 2000 you need to add 1900 to get it to current year
 
 	var savingsYear = Number(formData.goalYear);
 	var savingsMonth = Number(formData.goalMonth);
@@ -50,7 +50,10 @@ function calculate(formData) {
 	var totalYears = savingsYear - currentYear;
 	var totalMonths = (totalYears*12) + (savingsMonth - currentMonth);
 
+	var totalSavings = (Number(formData.monthlyContributions) * totalMonths) + formData.currentSavings;
+
 	console.log("savings month is " + savingsMonth);
 	console.log("current year " + currentYear);
 	console.log(totalMonths);
+	console.log("total savings is " + totalSavings);
 };
