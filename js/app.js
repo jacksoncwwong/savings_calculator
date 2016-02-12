@@ -42,10 +42,15 @@ $(document).ready(function(){
 function calculate(formData) {
 	var today = new Date();
 	var currentMonth = today.getMonth();
-	var currentYear = today.getYear();
+	var currentYear = today.getYear() + 1900;
 
-	savingsYear = Number(formData.goalYear);
-	savingsMonth = Number(formData.goalMonth);
+	var savingsYear = Number(formData.goalYear);
+	var savingsMonth = Number(formData.goalMonth);
+
+	var totalYears = savingsYear - currentYear;
+	var totalMonths = (totalYears*12) + (savingsMonth - currentMonth);
+
 	console.log("savings month is " + savingsMonth);
-	console.log(today.getMonth());
+	console.log("current year " + currentYear);
+	console.log(totalMonths);
 };
