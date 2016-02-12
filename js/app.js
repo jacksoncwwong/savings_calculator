@@ -12,8 +12,24 @@ $(document).ready(function(){
 			var savingsGoalAmt = $('#savingsGoalAmt').val();
 			var currentSavings = $('#currentSavings').val();
 			var monthlyContributions = $('#monthlyContributions').val();
+
+			var formData = {
+				"savingsGoal": savingsGoal,
+				"goalMonth": goalMonth,
+				"goalYear": goalYear,
+				"savingsGoalAmt": savingsGoalAmt,
+				"currentSavings": currentSavings,
+				"monthlyContributions": monthlyContributions
+			}
+
+
+
 			console.log("Savings Goal is: " + savingsGoal);
-			console.log(goalMonth + goalYear + savingsGoalAmt + currentSavings + monthlyContributions);
+			console.log(formData);
+
+
+
+
 			event.preventDefault();
 		}
 	)
