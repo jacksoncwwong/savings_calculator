@@ -6,6 +6,8 @@ $(document).ready(function(){
 		function(event){
 			console.log("You've submitted");
 
+			var savingsGoal = $('#savingsGoal').val();
+			console.log("Savings Goal is: " + savingsGoal);
 			event.preventDefault();
 		}
 	)
