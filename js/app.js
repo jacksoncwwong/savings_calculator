@@ -40,5 +40,11 @@ $(document).ready(function(){
 });
 
 function calculate(formData) {
-	
-}
+	var today = new Date();
+	var currentMonth = today.getMonth();
+	var currentYear = today.getYear();
+
+	savingsYear = Number(formData.goalYear);
+	savingsMonth = formData.goalMonth;
+	console.log("savings month is " + savingsMonth);
+};
