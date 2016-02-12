@@ -50,10 +50,19 @@ function calculate(formData) {
 	var totalYears = savingsYear - currentYear;
 	var totalMonths = (totalYears*12) + (savingsMonth - currentMonth);
 
-	var totalSavings = (Number(formData.monthlyContributions) * totalMonths) + formData.currentSavings;
+	var totalSavings = (Number(formData.monthlyContributions) * totalMonths) + Number(formData.currentSavings);
+
+	if(totalSavings > Number(formData.savingsGoalAmt)) {
+		var message = "savings goal is met!";
+	}
+	else {
+		var message = "savings goal not met :(";
+	}
+
+	$('#results').html(message + "<br> Savings Goal is: " + formData.savingsGoalAmt + "<br> Savings Calculated is: " + totalSavings);
 
 	console.log("savings month is " + savingsMonth);
 	console.log("current year " + currentYear);
-	console.log(totalMonths);
+	console.log("total months is " + totalMonths);
 	console.log("total savings is " + totalSavings);
 };
