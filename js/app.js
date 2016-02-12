@@ -22,6 +22,7 @@ $(document).ready(function(){
 				"monthlyContributions": monthlyContributions
 			}
 
+			calculate(formData);
 
 
 			console.log("Savings Goal is: " + savingsGoal);
@@ -36,7 +37,8 @@ $(document).ready(function(){
 	// step 2 process the data
 
 	// step 3 return the results to the front-end
-
-
-
 });
+
+function calculate(formData) {
+	
+}
