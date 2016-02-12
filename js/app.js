@@ -7,7 +7,13 @@ $(document).ready(function(){
 			console.log("You've submitted");
 
 			var savingsGoal = $('#savingsGoal').val();
+			var goalMonth = $('#goalMonth').val();
+			var goalYear = $('#goalYear').val();
+			var savingsGoalAmt = $('#savingsGoalAmt').val();
+			var currentSavings = $('#currentSavings').val();
+			var monthlyContributions = $('#monthlyContributions').val();
 			console.log("Savings Goal is: " + savingsGoal);
+			console.log(goalMonth + goalYear + savingsGoalAmt + currentSavings + monthlyContributions);
 			event.preventDefault();
 		}
 	)
