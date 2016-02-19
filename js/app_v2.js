@@ -2,6 +2,40 @@ angular.module("savingsApp", []);
 
 // let's define our controller
 
+// adding our former calculate function
+// but declaring the totalSavings variable outside of the function
+// this is a scoping issue, originally I declared this in our calculate function
+// and therefore it won't be available to our controller, remember scoping
+// so declaring it outside of this function allows me to access it in our controller 
+// and then using it to write to our "results" variable
+var totalSavings = 0;
+function calculate(formData) {
+	var today = new Date();
+	var currentMonth = today.getMonth();
+	var currentYear = today.getYear() + 1900; //the way they calculate year is weird, for dates greater then 2000 you need to add 1900 to get it to current year
+
+	var savingsYear = Number(formData.goalYear);
+	var savingsMonth = Number(formData.goalMonth);
+
+	var totalYears = savingsYear - currentYear;
+	var totalMonths = (totalYears*12) + (savingsMonth - currentMonth);
+
+	totalSavings = (Number(formData.monthlyContributions) * totalMonths) + Number(formData.currentSavings);
+
+	if(totalSavings > Number(formData.savingsGoalAmt)) {
+		var message = "savings goal is met!";
+	}
+	else {
+		var message = "savings goal not met :(";
+	}
+
+	console.log("savings month is " + savingsMonth);
+	console.log("current year " + currentYear);
+	console.log("total months is " + totalMonths);
+	console.log("total savings is " + totalSavings);
+};
+
+
 var formController = function($scope){
 
 	// retrieve form data
@@ -32,6 +66,19 @@ var formController = function($scope){
 		}
 
 		console.log(formData);
+
+		// calling our calculate function that was written before
+		calculate(formData);
+
+		// we're writing out our results in our controller because we're not using
+		// jQuery anymore, so $scope only exists in our controller because we loaded it in
+		// when we wrote function($scope)
+		// so if you tried to do any $scope stuff in our calculate function it wouldn't work
+		// because you didn't load it into the Calculate function and it doesn't know
+		// what you're talking about
+		// but here, we did load it in, and it knows what $scope means, so we can use it
+		// to manupulate our "results" variable
+		$scope.results = "Savings Goal is: " + formData.savingsGoalAmt + " and your Savings Calculated is: " + totalSavings;
 
 	}
 
