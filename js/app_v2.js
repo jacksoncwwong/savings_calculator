@@ -12,7 +12,16 @@ var formController = function($scope){
 	// and after we write this function we have to call it in our html
 	$scope.getFormData = function(){
 
-		console.log($scope.savingsGoalAng);
+		var formData = {
+			'savingsGoal': $scope.savingsGoalAng,
+			'goalMonth': $scope.goalMonthAng,
+			'goalYear': $scope.goalYearAng,
+			'savingsGoalAmt': $scope.savingsGoalAmtAng,
+			'currentSavings': $scope.currentSavingsAng,
+			'monthlyContributions': $scope.monthlyContributionsAng
+		}
+
+		console.log(formData);
 
 	}
 
