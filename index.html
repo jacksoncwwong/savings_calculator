@@ -6,7 +6,6 @@
 	</head>
 	<body ng-controller="formController">
 		<div class="container">
-			<pre>{{test}}</pre>
 			<div class="row" class="title_row">
 				<div class="col-sm-12">
 					<h1 class="app_title">Savings Calculator App</h1>
@@ -14,10 +13,14 @@
 			</div>
 			<div class="row">
 				<div class="col-sm-6">
-					<form>
+
+				<!-- here we are declaring that when submit happens for this form, we will run getFormData -->
+					<form ng-submit="getFormData()">
 					<div class="form-group">
 						<label for="savingsGoal">What is your savings goal?</label>
-						<input type="text" class="form-control" id="savingsGoal" placeholder="Buy a new mac">
+
+						<!-- here we're replacing id with ng-model, we're going to add Ang at the end so that it's clear this is an angular model we're referring to when we call it later-->
+						<input type="text" class="form-control" placeholder="Buy a new mac" ng-model="savingsGoalAng">
 					</div>
 					<div class="row">
 						<div class="col-sm-6">

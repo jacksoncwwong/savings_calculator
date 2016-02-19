@@ -4,11 +4,17 @@ angular.module("savingsApp", []);
 
 var formController = function($scope){
 
-	// we're just testing to see if we're connected properly
-
-	$scope.test = "TESTING!!!";
-
 	// retrieve form data
+	// let's start by grabbing a single input and testing
+	// to see if we're grabbing it correctly, we're just going to
+	// console.log the input to see if this is happening
+	// and of course, we'll have to write this in a function
+	// and after we write this function we have to call it in our html
+	$scope.getFormData = function(){
+
+		console.log($scope.savingsGoalAng);
+
+	}
 
 	// validate form data
 
